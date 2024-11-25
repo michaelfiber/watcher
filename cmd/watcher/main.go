@@ -10,7 +10,6 @@ import (
 var adapter = bluetooth.DefaultAdapter
 
 // TimeCharacteristicUUID is the UUID for the time characteristic on PineTime.
-// Replace with the actual UUID from your PineTime device.
 const TimeCharacteristicUUID = "00002a2b-0000-1000-8000-00805f9b34fb"
 
 func main() {
@@ -95,7 +94,7 @@ func buildCurrentTime() []byte {
 	hour := uint8(now.Hour())
 	minute := uint8(now.Minute())
 	second := uint8(now.Second())
-	dayOfWeek := uint8((int(now.Weekday()) + 6) % 7) // Sunday=0, Monday=1, ..., Saturday=6 -> 1=Monday, ..., 7=Sunday
+	dayOfWeek := uint8((int(now.Weekday()) + 6) % 7)
 	if dayOfWeek == 0 {
 		dayOfWeek = 7
 	}
